@@ -1,0 +1,14 @@
+select count (*) as max_cnt_classes
+    , t.*
+    
+from skyeng_db.classes c
+        join skyeng_db.teachers t
+        on c.id_teacher = t.id_teacher
+        
+            where (class_status = 'success' or class_status = 'failed_by_student')
+    and class_type <> 'trial' 
+    and date_trunc('year', class_start_datetime) = '2016-01-01'
+    
+group by t.id_teacher
+having count (*) > 400
+order by count (*) desс
