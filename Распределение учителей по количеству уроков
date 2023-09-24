@@ -1,0 +1,15 @@
+with classes_stats as (
+                        select id_teacher,
+                           date_part('month', class_start_datetime) as class_month,
+                           count(distinct id_class) as classes
+                            from skyeng_db.classes 
+                                    where (class_status = 'success' or class_status = 'failed_by_student')
+                                    and class_type <> 'trial' 
+                                    and date_trunc('year', class_start_datetime) = '2016-01-01'
+                            group by 1,2)
+    
+select classes,
+       count(id_teacher) teachers_in_month
+from  classes_stats
+group by classes
+order by classes
