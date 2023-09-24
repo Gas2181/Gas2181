@@ -1,0 +1,11 @@
+select t.*
+    , avg(sum_amt_payment) over (order by month_perchase rows between 2 preceding and current row) as ma_3
+    , avg(sum_amt_payment) over (order by month_perchase rows between 6 preceding and current row) as ma_7
+    , avg(sum_amt_payment) over (order by month_perchase rows between 2 preceding and 2 following) as ma_2side5
+from
+       
+        (select    date_trunc('month', date_purchase) as month_perchase
+                , sum(amt_payment) as sum_amt_payment
+        from skycinema.client_sign_up
+        group by month_perchase
+        ) t
