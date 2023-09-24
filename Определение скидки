@@ -1,0 +1,9 @@
+ select game_rank, name, genre, publisher, platform_name, eu_sales, sales_start, 
+    case when
+    eu_sales <= 0.2 then '40%'
+    else '0%'
+    end
+    as discount_rate
+from game_db
+    where current_date - sales_start >= interval '9 years' and publisher like '%Sony%' and genre = 'Sports'
+    order by game_rank desc
