@@ -15,3 +15,4 @@
 Результат:
 - [План Маркетинга](https://docs.google.com/spreadsheets/d/1H01B7uI6EdCzeQkxaufqBJ32SUtUCAHd/edit?usp=sharing&ouid=117372264975186044819&rtpof=true&sd=true)
 - [План найма преподавателей](https://docs.google.com/spreadsheets/d/1H01B7uI6EdCzeQkxaufqBJ32SUtUCAHd/edit?usp=sharing&ouid=117372264975186044819&rtpof=true&sd=true)
+
